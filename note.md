@@ -60,3 +60,10 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
        default 则是同一个包的类可以访问。
        protected 表示同一个包的类可以访问，其他的包的该类的子类也可以访问。
        private 表示只有自己类能访问
+    5.数组初始化
+        1. String[] str = {"1","2","3"}; // 正确的
+        2. String[] str;
+           str = new String[] {"1","2","3"}; // 正确了
+        3.  int[] arr = new int[3];
+            int[] arr1= new int [] {1,2,3,4,5};
+            int[] arr2 = {1,2,3,4,5};
