@@ -34,4 +34,29 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
            3.查看是否启动 net start 
            4. 修改Tomcat服务器端口
                 server.xml文件，修改配置文件中的Connector节点的port属性
-三
+三. web应用部署到Tomcat
+    1.
+四.数据类型 primitive 八种
+    1. boolean  char
+    2. integer 整型(带符号)
+        byte
+        short
+        int
+        long 
+    3.  float
+        double
+    4.
+五. 基础
+    1. 对象引用变量保存的是存取对象的方法
+    2. 声明为 private 的方法、变量和构造方法只能被所属类访问，并且类和接口不能声明为 private。
+    3.变量类型
+        类变量：独立于方法之外的变量，用 static 修饰。
+        实例变量：独立于方法之外的变量，不过没有 static 修饰。
+        局部变量：类的方法中的变量。
+    4.JAVA 的类（外部类）有 2 种访问权限: public、default。
+      而方法和变量有 4 种：public、default、protected、private。
+      其中默认访问权限和 protected 很相似，有着细微的差别。
+       public 意味着任何地方的其他类都能访问。
+       default 则是同一个包的类可以访问。
+       protected 表示同一个包的类可以访问，其他的包的该类的子类也可以访问。
+       private 表示只有自己类能访问
