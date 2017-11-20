@@ -19,7 +19,10 @@ public class Main {
         */
         // b.learn4();
 
-        Duck myDuck = new Duck();
+        // Duck myDuck = new Duck();
+
+        Hippo h = new Hippo("Aqie");
+        System.out.println(h.getName());
 
 
     }
