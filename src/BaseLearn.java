@@ -36,4 +36,39 @@ public class BaseLearn {
         }
     }
 
+    void learn1(){
+        int a = 3;
+        byte b = 3;
+        if(a == b){
+            System.out.println("相等");
+        }
+        Foo c = new Foo();
+        Foo d = new Foo();
+        if(c == d){  // false
+            System.out.println("c d相等");
+        }
+        if(c.equals(d)){  // false
+            System.out.println("c d 对象相等");
+        }
+    }
+
+    int learn3(int arg){
+        arg = arg * 2;
+        return arg;
+    }
+
+    void learn4(){
+        int y = 7;
+        for(int x = 1; x < 8; x++){
+            y++;
+            if(x > 4){
+                System.out.println(++y );
+            }
+            if (y>14){
+                System.out.println("x= " + x);
+                break;
+            }
+        }
+    }
+
 }
