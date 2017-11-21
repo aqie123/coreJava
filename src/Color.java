@@ -1,2 +1,4 @@
-public class Color {
+public enum Color{
+    Red,Green
 }
+
