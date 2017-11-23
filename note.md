@@ -1,3 +1,4 @@
+# 我最擅长从零开始创造世界，所以从来不怕失败，它最多也就让我一无所有。
 ## begin learn java
 IntelliJ IDEA 注册码 http://idea.lanyus.com/
 程序员代码面试指南 IT名企算法与数据结构题目最优解
@@ -36,16 +37,22 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
                 server.xml文件，修改配置文件中的Connector节点的port属性
 三. web应用部署到Tomcat
     1.
-四.数据类型 primitive 八种
-    1. boolean  char
-    2. integer 整型(带符号)
-        byte
-        short
-        int
-        long 
-    3.  float
-        double
-    4.
+四.数据类型 
+    primitive 基本数据类型八种
+        1.  boolean  ：(一个字节或者四个字节) 计算机最小存储单位
+                        声明一个基本变量占四个字节
+                        声明一个数组类型时,数组中每个元素占一个字节
+            char : 两个字节
+        2. integer 整型(带符号) 
+            byte 字节 = 8bit    一字节   2^8 = 256
+            short(短整型) = 16 bit       2^16 = 655365
+            int(整型) = 32bit
+            long = 64bit
+        3.  float(单精度) 32bit  7个小数位
+            double(双精度浮点型) 64bit  15个小数位
+        4. 整数没加标识,默认int类型
+            以L结尾是long类型数据
+
 五. 基础
     1. 对象引用变量保存的是存取对象的方法
     2. 声明为 private 的方法、变量和构造方法只能被所属类访问，并且类和接口不能声明为 private。
@@ -53,8 +60,9 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
         类变量：独立于方法之外的变量，用 static 修饰。
         实例变量：独立于方法之外的变量,声明在类中,不过没有 static 修饰。
                   实例变量存在于所属对象中
+                  生命周期与对象相同
         局部变量：类的方法中的变量。使用前必须初始化
-                生命周期只限于存在于栈这段期间(被调用至执行完毕)
+                  生命周期只限于存在于栈这段期间(被调用至执行完毕)
         参数 ： 类似局部变量
     4.JAVA 的类（外部类）有 2 种访问权限: public、default。
       而方法和变量有 4 种：public、default、protected、private。
@@ -64,13 +72,14 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
        protected 表示同一个包的类可以访问，其他的包的该类的子类也可以访问。
        private 表示只有自己类能访问
     5.数组初始化
-        1. String[] str = {"1","2","3"}; // 正确的
+        1. String[] str = {"1","2","3"}; // 正确的  静态初始化
         2. String[] str;
            str = new String[] {"1","2","3"}; // 正确了
-        3.  int[] arr = new int[3];
+        3.  int[] arr = new int[3];  // 动态初始化
             int[] arr1= new int [] {1,2,3,4,5};
             int[] arr2 = {1,2,3,4,5};
-        4. 创建Dog类数组            
+        4. 创建Dog类数组 
+        5. 数组变量不要记录任何对象内存地址           
     6.
         1. byte可以放进int中，隐含展开implicit widening
         2. 对象：
@@ -161,3 +170,21 @@ IntelliJ IDEA 注册码 http://idea.lanyus.com/
      28. this
         1. this() 从某个构造函数调用同一个类的另一个构造函数
         2.  this()只能在构造函数中，且必须是第一行
+     29. life Scope 引用变量
+        1.  life 变量堆栈块还在
+        2.  Scope 方法调用其他方法,变量存在,不在当前作用范围
+        3.  引用变量只有在处于他的范围才能被引用
+    30. 变量生命周期  如何影响对象生命周期
+        1. 对象引用不在范围,引用活着,对象继续活在堆上
+        2. 唯一引用死了,对象会从堆中踢开,引用变量跟随堆栈块一起解散
+    31. 释放对象引用
+        1. 引用永久离开他的范围,函数执行结束
+        2. 引用被赋值到其他对象上
+        3. 直接将引用设定为null
+
+六. IntelliJ 快捷键
+    ctrl +alt +T
+七. 引用传递和值传递
+    1. 数组用的引用传递
+    2. 变量使用的值传递
+    
