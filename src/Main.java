@@ -30,7 +30,7 @@ public class Main {
         Mini m = new Mini(2);
         System.out.println(m.getName());
         */
-        b.learn33();
+        b.learn35();
 
     }
 

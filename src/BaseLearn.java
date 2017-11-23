@@ -502,4 +502,98 @@ public class BaseLearn {
 
     }
 
+    // 清除重复元素,不重复元素保存到新数组,且不能浪费长度
+    void learn34(){
+        int oldArr[] = {1,1,2,2,3,3,3,4};
+        int newArr[] = clearDuplicate(oldArr);
+        System.out.println(Arrays.toString(newArr));
+    }
+
+    public int[] clearDuplicate(int arr[]){
+        // 选择排序
+        int count = 0;
+        // 新数组索引值
+        int index = 0;
+        // 计算出重复元素个数
+        for(int i = 0;i<arr.length;i++){
+            for(int j = i+1;j<arr.length;j++){
+                if(arr[i] == arr[j]){
+                    count++;
+                    break; // Marrow
+                }
+            }
+        }
+
+        int newArr[] = new int[arr.length-count];
+        // 遍历旧数组,判断新数组是否存在
+        for(int k=0;k<arr.length;k++){
+            // 用于标识取出元素是否存在新数组
+            boolean flag = false;
+            int tmp = arr[k];
+            for(int j=0;j<newArr.length;j++){
+                if(newArr[j] == tmp){
+                    flag = true;
+                    break;  // Marrow
+                }
+            }
+            // 该元素不存在新数组中
+            if(!flag){
+                newArr[index++] = arr[k];
+            }
+        }
+        return newArr;
+    }
+
+    // 用户输入班级人数,依次输入每个同学成绩,输入完毕，如果及格率没有达到
+    // 60%,则为每个不及格同学加2分,知道及格率达到60%
+    void learn35(){
+        int[] arr = readyData();
+        double rate = getRate(arr);
+        while(true){
+            if(rate<0.6){
+                for(int i=0;i<arr.length;i++){
+                    if(arr[i]<60){
+                        arr[i] = arr[i] +2;
+                    }
+                }
+                // 重新计算及格率
+                rate = getRate(arr);
+            }else {
+                break;
+            }
+        }
+
+        System.out.println("及格率："+rate+"数组元素是："+Arrays.toString(arr));
+    }
+
+    // 准备数据
+    public int[] readyData(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入班级人数:");
+        int count = scanner.nextInt();
+
+        // 创建一个数组对象
+        int[] arr = new int[count];
+
+        // 录入学生成绩
+        for(int i = 0;i<count;i++){
+            System.out.println("请输入学生成绩:");
+            arr[i] = scanner.nextInt();
+        }
+        return arr;
+    }
+
+    // 计算及格率
+    public double getRate(int[] arr){
+        // 定义及格人数
+        double count = 0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>=60){
+                count++;
+            }
+        }
+        double rate =  count/arr.length;
+        return rate;
+    }
+
 }
