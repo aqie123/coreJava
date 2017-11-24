@@ -78,6 +78,7 @@ public class BaseLearn {
         }
     }
 
+    // 进制转换
     void learn5(){
         System.out.println(false);
         System.out.println('a');
