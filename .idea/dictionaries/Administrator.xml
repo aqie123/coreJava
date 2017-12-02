@@ -2,6 +2,9 @@
   <dictionary name="Administrator">
     <words>
       <w>aqie</w>
+      <w>instanceof</w>
+      <w>javap</w>
+      <w>obama</w>
     </words>
   </dictionary>
 </component>
