@@ -46,6 +46,7 @@
     2.service 业务逻辑层
     3.dao 数据持久层
 三： Spring(Spring：DI/AOP  IOC原理)、Struts(MVC)、Hibernate(ORM)
+     Spring、SpringMVC和Mybatis
     1. HTTP协议
     2. Servlet和JSP
     3. hibernate和mybatis是对jdbc的封装，利用反射等完成参数赋值对象转换，
@@ -55,4 +56,44 @@
     还可以自动把request中携带的参数赋给action中的变量或者action方法中的参数，让你可以直接用。
  四：note
     1. 资源文件使用完毕一定要释放
-    2. 
+    2. javac -d . Demo.java
+    3. java类文件加载到内存执行
+ 五：包 package ： 全部小写
+    1.问题：
+        1. 两个java文件类名一致,后编译的class文件会覆盖前面编译的class文件
+        2. 有了包后,类与类间访问加上包名
+    2.好处
+        1. 解决类名重复
+        2. 软件版本发布
+    3. 导包语句
+        1. 简化书写
+        2. import 包名.类名  包名.*
+        3. import bb.* 该语句不会作用于bb 包下面子包
+        4. 惰性加载
+        5. 同一个包下面不需要导包语句
+        6. java.lang包类会自动导入
+        7. 两个类不属于同一个包
+    4. 访问权限修饰符 ： 修饰类,方法,变量的可见性
+        1. public
+        2. protected
+            同一个包：变量,方法可以访问
+            子父类 不同包： 变量,方法可以访问
+            不同包 ： 不能访问
+        3. default 
+            同一个包：变量,方法可以访问
+            子父类 不同包： 变量,方法【不】可以访问
+            不同包 ： 不能访问
+        4. private
+        5. 总结：
+            不同包中只有public 和protected可以访问,且protected需要子父类继承关系
+    5. jar 包
+        1. jar cvf welcome.jar hello     (包名或者类名)
+            Main-Class: hello.Welcome     指定入口类
+        2.  特点
+            1.jar包双击运行,仅对于图形化界面程序起作用,
+                对控制台程序没作用
+        3. 作用
+            1. 将项目class文件打包,方便用户运行项目
+            2. 将工具类打包成jar方便调用
+            3. 写好的工具类给别人使用
+                set classpath = .\tool.jar;
