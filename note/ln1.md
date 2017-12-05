@@ -61,7 +61,6 @@
         5. 三元运算符  布尔表达式 ？ 值 ： 值 ;
     8.  流程控制语句 
         1. switch ： 只能使用 byte char short int string
-            
             永远先判断case语句,不管default语句顺序
             优点： 结构清晰,缺点：case 后面只能跟常量
         2. do while :
@@ -69,7 +68,6 @@
             只能用于 switch 或者循环语句
         4. continue
             循环语句，跳过本次循环语句
-        
     9. note :
         1. 字符串与字符串比较不能使用== 使用 equlas
     10.函数
