@@ -10,7 +10,7 @@ public class Demo {
     }
 }
 
-abstract class Runtime{
+abstract class MyRuntime{
     public final void getRunTime(){
         // 运行前系统时间
         long startTime = System.currentTimeMillis();
@@ -21,7 +21,7 @@ abstract class Runtime{
     public abstract void code();
 }
 
-class SumRuntime extends Runtime{
+class SumRuntime extends MyRuntime{
     public void code(){
         long sum  = 0;
         for(int i = 0; i<1000000;++i){

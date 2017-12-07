@@ -42,25 +42,53 @@
             4. String toUpperCase()
             5. String toLowerCase()
             6. String trim()  去掉字符串首尾空格
-         7. String没有增加删除方法 ： 字符串是常量,值创建后不能更改.
-            使用字符串缓冲区类(StringBuffer)修改字符串内容
-            1. 字符串内容一旦改变会创建一个新对象
-            2. 存储字符的集合容器
-            3. 增
-                StringBuffer("java");
-                append();
-                insert(); 指定下标位置添加新的文本对象
-            4. 删
-                delete(int start,int end);
-                deleteCHarAt(int index);
-            5. 查
-                toString(); 返回容器字符串
-                indexOf(String str); 返回第一次出现指定字符串索引
-                substring(int start)
-            6. 改
-                replace(int start );
-                setCharAt(int index char ch); 指定索引位置替换字符串
-            7. 使用场景
-                1. 字符串内容频繁更改
+     3.(StringBuffer) String没有增加删除方法 ： 字符串是常量,值创建后不能更改.
+        使用字符串缓冲区类修改字符串内容
+        1. 字符串内容一旦改变会创建一个新对象
+        2. 存储字符的集合容器
+        3. 增
+            StringBuffer("java");
+            append();
+            insert(); 指定下标位置添加新的文本对象
+        4. 删
+            delete(int start,int end);
+            deleteCHarAt(int index);
+        5. 查
+            toString(); 返回容器字符串
+            indexOf(String str); 返回第一次出现指定字符串索引
+            substring(int start)
+        6. 改
+            replace(int start );
+            setCharAt(int index char ch); 指定索引位置替换字符串
+        7. 使用场景
+            1. 字符串内容频繁更改
+    4. StringBuilder 字符串缓冲类 兼容 StringBuffer 方法一致
+        1. 区别
+            1. StringBuilder 是线程不安全的
+            2. 推荐使用(很少人会用多线程操作字符串)
+    5. System 一个类没有构造方法 ：方法都是静态的 *  Demo4.java
+        1. arraycopy() 拷贝数组
+        2. currentTimeMillis() 当前系统时间
+        3. exit()  退出jvm 0正常退出 非0异常退出
+        4. gc()  建议jvm运行垃圾回收器 调用finalize()
+        5. getenv() 返回一个不能修改的当前系统环境的字符串映射视图
+        6. getProperties()
+        7. static String getProperty(String key)
+    6. Math 
+        1. random  0.0-1.0双精度
+        2. abs()   双精度浮点数绝对值
+        3. round() 浮点或双精度浮点四舍五入后整型或者长整型 0.0-1.0不包括1.0
+        4. min() max()  int long float double
+        5. ceil() 向上取整
+        6. floor() 向下取整
+    ７．Runtime 代表当前程序运行环境  Demo5.java
+        1. exec(String command) 执行指定路径下的可执行文件
+    8. Date  被Calendar 取代  当前系统时间类
+    9. SimpleDateFormat   日期格式化类
+        1. 时间对象 转换成指定格式字符串 format()
+        2. 字符串转换为日期对象   parse()   
+    10. Random 
+        1. nextInt(n) 范围 0-(n-1)
 五：note
     1. Character.isSpaceChar(str.charAt(i)) 判断字符是否为空字符
+ 
