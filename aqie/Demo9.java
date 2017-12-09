@@ -66,6 +66,10 @@ class Test7{
         it.remove();
         System.out.println("集合元素 "+c);
     }
+
+    void method5(){
+
+    }
 }
 
 interface Dao{
