@@ -65,7 +65,7 @@
                 trimToSize()
             3. 应用场景
                 1.查询多   图书馆  Demo11.java   
-        8. LinkedList  使用链表数据结构实现:查询速度慢增删快  Demo2.java
+        8. LinkedList  使用链表数据结构实现:查询速度慢 增删快  Demo2.java
             1. 一个链表记录当前元素和下一个元素的内存地址
             2.方法
                 1.addFirst  添加到 集合首位置
