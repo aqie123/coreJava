@@ -45,7 +45,7 @@ class Test2{
     }
 }
 
-class Person{
+class Person implements Comparable{
     String name;
     int id;
     public Person(int id,String name){
@@ -78,5 +78,33 @@ class Person{
             return this.id == person.id;
         }
         return super.equals(obj);
+    }
+
+    @Override
+    // 重新定义元素与元素比较规则
+    // 负数 正数 0  小于 大于 等于
+    public int compareTo(Object o) {
+        if(o instanceof Person){
+           Person person = (Person) o;
+           System.out.println(this.name+" compareTo "+person.name);
+            return this.id-person.id;
+        }
+        return 0;
+    }
+}
+
+class Animal{
+    String name;
+    int age;
+    public Animal(int age,String name){
+        super();
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        // return super.toString();
+        return "name: "+this.name;
     }
 }

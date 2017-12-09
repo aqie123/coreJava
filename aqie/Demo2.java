@@ -36,6 +36,7 @@ class User{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        // return super.hashCode();
+        return this.name.hashCode()+this.password.hashCode();
     }
 }
