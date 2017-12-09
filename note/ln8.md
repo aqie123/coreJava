@@ -64,11 +64,38 @@
                 ensureCapacity()
                 trimToSize()
             3. 应用场景
-                1.查询多   图书馆  Demo11.java
-                2.
-        8. LinkedList
+                1.查询多   图书馆  Demo11.java   
+        8. LinkedList  使用链表数据结构实现:查询速度慢增删快  Demo2.java
+            1. 一个链表记录当前元素和下一个元素的内存地址
+            2.方法
+                1.addFirst  添加到 集合首位置
+                2.addLast   添加到集合末尾
+                3.getFirst  获取集合首位置
+                4.getLast   获取集合末尾元素
+                5.removeFirst  删除集合首元素
+                6.removeLast    删除集合末尾元素
+            3.数据结构
+                1.栈 ： 先进后出  属于接口Deque
+                    push() 将元素推入列表所表示的堆栈，元素插入列表开头
+                    pop()
+                2.队列 ：先进先出
+                    offer()
+                    poll()
+            4. 返回逆序的迭代器对象
+                1.descendingIterator()
         9.Vector(了解)
+            底层使用Object数组实现的,线性安全操作效率低
     5. Set
+        1.HashSet(存储原理)
+            1. HashSet 添加元素时,先调用元素的HashCode方法得到元素的哈希码值
+                通过元素的哈希码值算出元素在哈希表中存储位置
+               a.算出的位置目前已经有其他元素,会调用equals与该位置元素进行比较 
+               equals返回false,该元素可存储在此位置，返回true，则被视为重复元素
+            2. 算出位置目前没任何元素存储,直接添加到该位置
+            3. 数据结合：
+                使用了哈希表支持的, 存取的速度快
+        2.TreeSet
+            1.
 二：note
     1. list.lastIndexOf()   不能add添加 char
     2. 迭代器在迭代过程中时,不准使用集合对象改变集合中元素个数
