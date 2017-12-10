@@ -114,3 +114,86 @@
     2. 迭代器在迭代过程中时,不准使用集合对象改变集合中元素个数
         否则报错 ConcurrentModificationException  
         ( 使用集合对象方法后不能使用it.next();)
+    3. 字符串具备可比性 ： 实现了Comparable接口,有compareTo()
+        a.字符串比较规则
+            1. 两个字符串可以找到对应位置不同的字符,比较第一个不同的字符
+            2. 找不到不同位置上字符,则对比两个字符串的长度
+三：泛型  Demo14.java
+    1. 好处
+        1. 运行时出现问题提前至编译时
+        2. 避免无谓的强制类型转换
+    2. 写法 ()
+        1. ArrayList<String> list = new ArrayList<String>(); V
+        2. ArrayList<Object> list = new ArrayList<String>(); X
+        3. ArrayList<String> list = new ArrayList<Object>(); X
+        // 为了兼容
+        4. ArrayList list = new ArrayList<String>();         V
+        5. ArrayList<String> list = new ArrayList();         V
+    3. 注意
+        1.泛型里面没有多态
+        2.左右两边数据类型必须一致,或者只写一边泛型
+        3.推荐两边都写
+    4. 自定义泛型 ：一个数据类型的变量或者是一个数据类型的占位符  Demo15.java
+        1.注意
+            1. 函数自定义泛型的具体数据类型是在调用函数时,传递实参数据时
+                确定具体的数据类型
+            2. 泛型中不能使用基本类型数据的,如果需要使用基本数据类型
+                就要使用基本数据类型对应的包装类型
+                byte -> Byte
+                int  -> Integer 包装了基本类型int值，Integer对象包含int类型字段
+                float ->Float
+                double -> Double
+                short -> Short
+                long -> Long
+                char -> Character
+                boolean ->Boolean
+         2. 在写一些工具类时使用到    
+    5. 自定义泛型类    Demo15
+        1. class MyArrays<T>{} 函数中就可以不必声明
+        2.注意
+            1.类上声明的自定义泛型的具体数据类型在使用该类创建具体对象时确定
+            2. 如果一个类已经声明了自定义泛型,该类在创建对象时候没有
+            指定自定义泛型的具体数据类型,默认为Object类型
+            3. 静态方法不能使用类上声明的自定义泛型,如果需要使用自定义泛型只能在自己方法上使用
+                1.因为 T类型在创建对象才能确定,静态方法不需要创建对象
+                2. public  static <T> void test(T[] arr){}
+    6. 泛型接口  Demo5.java
+        1. 注意
+            1、实现接口时确定泛型类型
+            2. 接口自定义泛型,实现该接口时未指定具体数据类型
+                默认为Object
+        2. 应用 ： Demo13.java AgeComparator 优化
+                   Demo4.java  Person   compareTo()方法
+    7. 泛型的上下限   Demo16.java
+        1. 需求 ：定义一个可以接收任意类型的集合对象,接收的集合对象
+                只能存储Integer 以及 Integer 的父类
+        2. ? super Integer  泛型的下限  Integer 及以上
+        3. ? extends Integer  泛型的上限
+四：map 遍历方式   Demo17.java
+    1. 用处 ： 存储成对数据  双列集合 Map
+    2. Map : 
+        1.实现Map接口存储数据都是以键值对存在的（key）不能重复
+        2. 子类
+            1. HashMap  没有顺序
+            2. TreeMap
+            3. Hashtable(了解)
+         3. 增
+            put()
+                添加元素到map,返回以前与key关联的值,如果没有针对key映射关系
+                则返回null
+            putAll()
+         4. 删
+            clear()  清除所有元素
+            remove()  删除指定值 返回 value
+         5. 获取
+            get()   根据键获取对应的值
+            size()
+         6. 判断
+            containskey()
+            containsValue()
+            isEmpty()
+         7. 迭代
+            keySet()    返回Set类型,把key数据存储到Set返回
+            entrySet()  返回Collection  将所有值存储到Collection
+                1. Entry 是Map的静态内部类  Demo18.java
+            values()    返回Set

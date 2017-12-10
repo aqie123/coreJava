@@ -45,7 +45,7 @@ class Test2{
     }
 }
 
-class Person implements Comparable{
+class Person implements Comparable<Person>{
     String name;
     int id;
     public Person(int id,String name){
@@ -83,11 +83,19 @@ class Person implements Comparable{
     @Override
     // 重新定义元素与元素比较规则
     // 负数 正数 0  小于 大于 等于
+    /*
     public int compareTo(Object o) {
         if(o instanceof Person){
            Person person = (Person) o;
            System.out.println(this.name+" compareTo "+person.name);
             return this.id-person.id;
+        }
+        return 0;
+    }
+    */
+    public int compareTo(Person o) {
+        if(o != null){
+            return (int)(this.id-o.id);
         }
         return 0;
     }
