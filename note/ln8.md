@@ -197,3 +197,4 @@
             entrySet()  返回Collection  将所有值存储到Collection
                 1. Entry 是Map的静态内部类  Demo18.java
             values()    返回Set
+    3.HashMap
