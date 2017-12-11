@@ -11,3 +11,5 @@ Struts2 做控制器(controller)，spring 管理各层的组件，hibernate 负�
 
 SSM
  SpringMVC 做控制器(controller)，Spring 管理各层的组件，MyBatis 负责持久化层。
+ 
+首先先搞懂JavaSE的部分，Swing和swt部分就可以少看或不看，因为现在用的比较少。重点是看懂Java中的面向对象、集合框架、JDBC、异常、IO、线程和网络编程。JavaSE搞定后再学习Servlet、JSP,然后才是经典的Struts2、Hibernate和Spring，学习框架时重点理解框架的运行原理，甚至可以尝试自己写个轻量级的框架。理解运行原理的最好方法就是阅读源代码，还是要感谢Java中的开源项目。这期间还要多找各种大小的项目去完成，不一定要大，但是要精致，功能要完整，  

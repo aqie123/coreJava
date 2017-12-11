@@ -84,7 +84,7 @@
             4. 返回逆序的迭代器对象
                 1.descendingIterator()
         9.Vector(了解)
-            底层使用Object数组实现的,线性安全操作效率低
+            底层使用Object数组实现的,与ArrayList原理一致，线性安全操作效率低
     5. Set
         1.HashSet(存储原理)
             1. HashSet 添加元素时,先调用元素的HashCode方法得到元素的哈希码值
@@ -174,9 +174,25 @@
     2. Map : 
         1.实现Map接口存储数据都是以键值对存在的（key）不能重复
         2. 子类
-            1. HashMap  没有顺序
-            2. TreeMap
+            1. HashMap  没有顺序  Demo18.java
+                1.底层依赖于哈希码实现的,存储的位置是根据键的哈希码算出来的
+                2. 存储原理 ：
+                    HashMap存储元素时,HashMap会调用键的HashCode得到一个哈希码值
+                    通过哈希码值得到元素在哈希表中存储位置
+                    情况一：算出位置没有任何元素,直接添加
+                    情况二 ： 键的哈希码值算出位置已经有其他元素,调用键的equals方法
+                    与这个位置元素再比较一次<equals返回false可以添加，返回 true 被视为重复元素
+            2. TreeMap 
+                1. 存储原理
+                    底层使用了红黑树实现的，
+                2. 特点
+                    根据键进行存储
+                3. 注意
+                    1. 添加元素，键不具备自然顺序特性,键所属类必须实现Comparable接口
+                    2. 既不具备自然顺序,也没实现Comparable接口,必须在创建treeMap
+                    对象时传入比较器对象Comparator  Demo18
             3. Hashtable(了解)
+                1.原理：实现一个哈希表(HashMap一致) 线程安全操作效率低
          3. 增
             put()
                 添加元素到map,返回以前与key关联的值,如果没有针对key映射关系

@@ -48,9 +48,15 @@ class Test2{
 class Person implements Comparable<Person>{
     String name;
     int id;
+    int age;
     public Person(int id,String name){
         this.name = name;
         this.id = id;
+    }
+    public Person(int id,int age,String name){
+        this.id = id;
+        this.age = age;
+        this.name = name;
     }
 
     @Override
@@ -104,6 +110,12 @@ class Person implements Comparable<Person>{
 class Animal{
     String name;
     int age;
+    int height;
+    String id;
+    public Animal(String id,int height){
+        this.id = id;
+        this.height = height;
+    }
     public Animal(int age,String name){
         super();
         this.name = name;
@@ -113,6 +125,9 @@ class Animal{
     @Override
     public String toString() {
         // return super.toString();
-        return "name: "+this.name;
+        // return "name: "+this.name;
+        return this.id;
     }
+
+
 }
