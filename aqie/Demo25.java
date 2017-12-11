@@ -13,6 +13,7 @@ public class Demo25 {
         t.method5();
         t.method6();
         t.method7();
+        t.method8();
     }
 }
 
@@ -109,7 +110,29 @@ class Test25{
         reg = "\\w+@\\w+(\\.\\w+)+";//简化的规则。笼统的匹配。
         boolean b = mail.matches(reg);
         System.out.println(mail+":"+b);
+    }
 
+
+    /** 提取字符串中邮件
+     *  邮件规则
+     *      1.不能0开头
+     *      2.字母与数字_
+     *      3. 2-12
+     *      4. @
+     *      5.[a-zA-Z0-9]{2,}
+     *      6. .com .cn .net  .com.cn
+     */
+    void method8(){
+        String str = " 请联系：2924811900@qq.com 请联系：2924811900@qq.com " +
+                "请联系：2924811900@qq.com";
+        String reg = "[a-zA-Z1-9]\\w{1,11}@[a-zA-Z0-9]{2,}(\\.[a-z]{2,3}){1,2}";
+        // 字符串正则编译成Pattern
+        Pattern p = Pattern.compile(reg);
+        // 正则对象匹配字符串对象得到一个匹配器
+        Matcher m = p.matcher(str);
+        while(m.find()){
+            System.out.println(m.group());
+        }
     }
 
 }
