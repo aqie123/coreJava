@@ -39,10 +39,10 @@ class Test21{
         String binaryString =input.nextLine();
         */
         //String binaryString ="1001 0011 0100 1001 0010 0101 1100 1010 0010";
-        String binaryString ="0011 0100 1001 0010 0101 11001010 0010";
+        String binaryString =" 0100 1001 0010 0101 11001010 0010";
         String str2 = binaryString.replaceAll(" ", "");
 
-        System.out.println("Output: "+Long.toBinaryString(34));
+        System.out.println("Output: "+Long.parseLong(str2));
     }
 
     // 增强for循环遍历数组
