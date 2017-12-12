@@ -5,11 +5,12 @@ import java.util.*;
 public class Demo17 {
     public static void main(String[] args) {
         Test17 t = new Test17();
-        t.method();
+        // t.method();
         // t.method2();
         // t.method3();
         // t.method4();
-        t.method5();
+        // t.method5();
+        t.method6();
     }
 }
 
@@ -93,6 +94,22 @@ class Test17{
         while(it.hasNext()){
             Map.Entry<String,String> entry = it.next();
             System.out.println("键 "+entry.getKey() + "  值 "+entry.getValue());
+        }
+    }
+
+    // map的遍历是无序的  有序可用 linkedmap
+    void method6(){
+        Map<Integer,String> map = new HashMap<>();
+        map.put(1,"a");
+        map.put(2,"b");
+        map.put(3,"c");
+
+        Iterator<Integer> it = map.keySet().iterator();
+        while(it.hasNext()){
+            Integer key = it.next();
+            if(key.equals(3)){
+                map.remove(3);
+            }
         }
     }
 }

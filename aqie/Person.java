@@ -3,7 +3,7 @@ package aqie;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class Demo4 {
+class Demo4 {
     public static void main(String[] args) {
         Test2 test2 = new Test2();
         // Test2.method();
@@ -45,8 +45,8 @@ class Test2{
     }
 }
 
-class Person implements Comparable<Person>{
-    String name;
+public class Person implements Comparable<Person>{
+    public String name;
     int id;
     int age;
     public Person(int id,String name){
@@ -74,7 +74,8 @@ class Person implements Comparable<Person>{
     @Override
     public int hashCode() {
         // return super.hashCode();
-        return this.id;
+        // return this.id;
+        return this.name.hashCode()+this.id;
     }
 
     @Override
@@ -108,7 +109,7 @@ class Person implements Comparable<Person>{
 }
 
 class Animal{
-    String name;
+    public String name;
     int age;
     int height;
     String id;
