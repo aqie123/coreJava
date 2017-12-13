@@ -74,3 +74,5 @@
                 2. write(byte[])
                 3. write(byte[],start,end)
         2. 关闭资源原则 ： 先开后关
+五：IOException 
+    1.
