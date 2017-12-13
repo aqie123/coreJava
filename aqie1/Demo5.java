@@ -50,10 +50,10 @@ class Test5{
         // FileHandle.characterImage(originText,outputText);
 
         // 缓冲输入字符流 分行读取文件
-        // FileHandle.bufferedReader(fileName);
+        FileHandle.bufferedReader(fileName);
 
         // 缓冲输出字符流 写入数据
-        FileHandle.bufferedWriter(fileName,"努力 奋斗 aqie",true);
+        // FileHandle.bufferedWriter(fileName,"努力 奋斗 aqie",true);
     }
 
 }

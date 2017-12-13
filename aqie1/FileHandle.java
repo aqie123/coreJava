@@ -369,6 +369,8 @@ public class FileHandle {
     // 缓冲输入字符流 分行读取文件
     public static void bufferedReader(String fileName){
         BufferedReader bufferedReader = null;
+        // BufferedLineNum bufferedReader = null;
+        // BufferedSemi bufferedReader = null;
         try{
             // 1.找到目标文件.
             File file = new File(fileName);
@@ -376,12 +378,14 @@ public class FileHandle {
             FileReader fileReader = new FileReader(file);
             // 3.建立缓冲输入字符流
             bufferedReader = new BufferedReader(fileReader);
+            // LineNum bufferedReader = new LineNum(bufferedReader2);
+            // bufferedReader = new BufferedLineNum(fileReader);
+            // bufferedReader = new BufferedSemi(fileReader);
            // 4, 读取文件内容 分行读取
             String line = null;
             while((line = bufferedReader.readLine()) != null){
                 System.out.println(line);
             }
-            System.out.println(line);
         }catch(IOException e){
             System.out.println("\n\r文件读取失败");
             throw new RuntimeException(e);
