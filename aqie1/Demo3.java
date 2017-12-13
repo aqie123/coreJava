@@ -27,7 +27,7 @@ public class Demo3 {
 }
 
 class Test3{
-    // 输入字节流 每次只能读取一个字节 (效率低)
+    // 方式一 ：输入字节流 每次只能读取一个字节 (效率低)
     void method() throws IOException{
         long startTime = System.currentTimeMillis();
         // 1.找到目标文件
@@ -48,7 +48,7 @@ class Test3{
         System.out.println(endTime - startTime);  // 1276
     }
 
-    // 使用(缓冲数组) 字节数组 (无法完整读取一个文件数据)
+    // 方式二 ：使用(缓冲数组) 字节数组 (无法完整读取一个文件数据)
     void method2() throws IOException{
         long startTime = System.currentTimeMillis();
         // 1.找到目标文件
@@ -67,7 +67,7 @@ class Test3{
         System.out.println(endTime - startTime);
     }
 
-    // 循环配合缓冲数组读取
+    // 方式三 ：循环配合缓冲数组读取 (推荐)
     void method3() throws IOException{
         long startTime = System.currentTimeMillis();
         // 1.找到目标文件

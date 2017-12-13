@@ -5,5 +5,6 @@
     留意是否会触发ConcurrentModificationException异常
    解决：
    使用Iterator提供的remove方法，用于删除当前元素
-2. 
+2. NullPointerException
+    1. FileInputStream fs = null 而读取文件时,文件不存在
 3.

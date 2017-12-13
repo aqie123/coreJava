@@ -39,7 +39,7 @@ class Test4{
         fileOutputStream.close();
     }
 
-    // 方式二： static/e.txt  数据转成字节数组再写出
+    // 方式二： static/e.txt  数据转成字节数组再写出 (推荐) 配合循环写入
     void method2() throws IOException {
         // 1.找到目标文件
         File file = new File("D:\\coreJava\\coreJava\\static\\e.txt");

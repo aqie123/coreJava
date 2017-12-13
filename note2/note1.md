@@ -73,6 +73,70 @@
                 1. write()
                 2. write(byte[])
                 3. write(byte[],start,end)
-        2. 关闭资源原则 ： 先开后关
+    4.note:
+        1.关闭资源原则 ： 先开后关    
 五：IOException 
-    1.
+    1. RuntimeException(Throwable cause)
+六： 缓冲输入输出字节流
+    1. 前期准备
+        1.FileInputStream 读取文件时,如何读取文件效率最高:
+            使用字节数组做缓冲区读取的效率最高， 
+        2.凡是缓冲流没有读写文件能力 
+    2. InputStream -> FilterInputStream ->BufferedInputStream
+        Sun准备 缓冲输入字节流 BufferedInputStream,提高读取文件效率
+        本质： 内部维护8kb 字节数组
+    3. BufferedInputStream  Demo5.java method2   缓冲输入字节流
+        1.注意：
+            BufferedInputStream close() 关闭的是 传进去的fileInputStream对象
+        2.bufferedInputStream.read() 为什么比 fileInputStream.read() 读取效率高
+            1.bufferedInputStream.read 返回的字节都是从内部维护的字节数组中取的 fill()
+            2. fileInputStream.read() 每次都是从硬盘取的
+        3. bufferedInputStream 为什么使用 InputStream构建
+            1. 必须依赖一个有读取文件能力对象
+    4. OutputStream -> FilterOutputStream ->BufferedOutputStream 缓冲输出字节流
+        1. 提高效率 先存进字节数组,只有调用close()和flush()才会写到硬盘
+        2. BufferedOutputStream close() 实际上就是出入的OutputStream对象的close()方法
+七：字符流 (读取中文数据)
+    1. 前提
+        a.写入
+            1.字节流写入中文,一个中文占两个字节
+            2.字节流不具备编码和解码功能
+            3. getBytes() 使用平台默认字符集将String编码为byte序列
+                并将结果存储到一个新的byte数组中
+                字符串不能使用默认字符集编码,应使用CharsetEncoder类
+        b.读中文
+            1.System.out.print((char)content); 读到两个字节才能转换成一个中文
+            2.字节流读中文很麻烦  
+            3. ReaderBuffFile()  new String(buff,0,length)
+               使用默认的字符集解码指定的byte子数组,新的String长度是字符集的函数
+               可能不等于该子数组长度
+    2. note 
+        1.码表
+            ASCII 字符 -> 码值,一个字符占一个字节,一个字节七位即可表示
+            GB2312 英文占一个字节,中文占两个字节
+            GBK 中文编码表升级
+            Unicode 国际标准规范,所有文字使用两个字节,java也是
+            UTF-8 最多用三个字节表示一个字符
+    3. 解决
+        1.字符流以字符为单位,会把独到的字节转换为字符, 字符流 = 字节流 + 编码(解码)
+    4. 输入字节流 抽象基类 Reader
+        1. Reader -> InputStreamReader -> FileReader 读取文件数据的输入字符流
+    5. 输出字节流 
+        1. FileWriter 向文件写出数据的输出字符流
+            1. 注意 new FileWriter 如果目标文件不存在,则创建目标文件
+            2. FileWriter内部维护字符数组,真正写到硬盘 flush()  close()
+    6. 字符流拷贝图片出bug
+        1. 图片字符对应码值在码表不存在
+八：使用场景
+    1. 操作文本使用字符流
+    2,操作图片等二进制使用字节流
+九：Buff : 不具备文件读写功能,
+    1.缓冲输入字符流 Reader -> BufferedReader 
+        1.提高读取文件字符数据效率
+        2.FileReader功能进行拓展  bufferedReader.readLine()
+    2.缓冲输出字符流 Reader -> BufferedWriter
+        1. 拓展  bufferedWriter.write(data);
+十： 练习 Demo5.java
+    1. 缓冲输入输出流编写注册登录功能
+    2. 注册用户保存到文件
+    3. 登录时查找的数据从文件上找
