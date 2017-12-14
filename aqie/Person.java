@@ -1,5 +1,6 @@
 package aqie;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -45,7 +46,8 @@ class Test2{
     }
 }
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person>,Serializable{
+    private static final long serialVersionUID = 1L;
     public String name;
     int id;
     int age;

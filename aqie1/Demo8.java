@@ -20,9 +20,9 @@ interface Work{
     public static void sleep(){}
 }
 
+// 不一定要写构造函数
 class Child implements Work{
     Work w;
-
     public void work(){
         System.out.println("I can paint");
     }
