@@ -1,0 +1,7 @@
+
+java.lang.NullPointerException
+	at aqie1.Test12.method3(Demo12.java:54)
+	at aqie1.Demo12.main(Demo12.java:10)
+java.lang.ArithmeticException: / by zero
+	at aqie1.Test12.method3(Demo12.java:55)
+	at aqie1.Demo12.main(Demo12.java:10)
