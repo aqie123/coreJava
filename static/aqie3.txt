@@ -1,1 +1,9 @@
-�й�
+
+ 文件 a.txt
+ 文件 z.txt
+ 文件 note.txt
+ 文件 note1.txt
+ 文件 note2.txt
+ 文件 note3.txt
+ 文件夹test2
+ 文件夹zend
