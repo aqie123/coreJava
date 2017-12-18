@@ -135,15 +135,27 @@
         3.getByName()  指定字符串形式IP地址或者主机名创建IP地址对象
         4.getHostName()返回计算机名
         5.getAllByName()
+        6.getAddress() 获取对方的IP地址
 十七.通讯协议
     1.TCP
         面向连接，有特有通道
         连接中传输大数据量
         通过三次握手建立连接可靠，效率低
-        应用：打电话,FeiQ文件传输
-    2.UDP
+        基于IO流进行数据传输
+        应用：打电话,文件传输
+    2.UDP       Demo20.java 
         1.不需要建立连接
         2.数据包大小64k
-        3.不可靠,效率高
+        3.不可靠,效率高,不分客户端和服务端,只分发送端和接收端
         4.应用 : 对讲机
+    3.UDP
+        1. 当前数据字节数组,字节数组长度,发送的IP地址,端口号
+            DatagramPacket packet = new DatagramPacket(buf,length,address,port)
+    4.UDP数据丢失
+        1.带宽不足
+        2.cpu处理能力不足
+    5.udp数据包丢失 Demo21.java
+    6.TCP 协议 Demo22.java
+    7. 多线程服务端发送图片  Demo23.java
+        1. ServerSocket 没有 getInputStream 和getOutputStream
         
