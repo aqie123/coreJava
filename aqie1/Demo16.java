@@ -59,25 +59,29 @@ class SaleTickets extends Thread{
 
 // husband  Passbook creditCard
 class WithdrawMoney extends Thread{
-    static int balance = 100;
+    static int balance = 10;
     public WithdrawMoney(String name){
         super(name);
     }
     static Object o = new Object();
 
+    // 非静态同步函数 -- 锁对象this对象 :当前有两个
     @Override
-    public void run() {
+    public synchronized void run() {
         while (true){
-            synchronized (o){
-                if(balance > 0){
-                    System.out.println(Thread.currentThread().getName()+
-                            " remaining balance :"+(balance-1));
-                    balance = balance - 1;
-                }else {
-                    System.out.println("Your balance is zero !");
-                    break;
-                }
+            if(balance > 0){
+                System.out.println(Thread.currentThread().getName()+
+                        " remaining balance :"+(balance-1));
+                balance = balance - 1;
+            }else {
+                System.out.println("Your balance is zero !");
+                break;
             }
         }
+    }
+
+    // 静态同步函数, 当前方法所属类的class文件对象
+    public synchronized static void getMoney(){
+
     }
 }
