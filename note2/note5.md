@@ -44,6 +44,15 @@
     i.执行器
     j.同步器
     k.线程与Swing
+    l.信号量
+    m.倒计时门栓(CountDownLatch)
+    n.障栅
+    o. 交换器
+    p. 同步队列
+    q.
+    r.
+    s.
+    t.
 二：多进程        多任务(multitasking)
     1. 并发执行进程数目不是CPU决定的
     2. 一个任务称为一个线程(thread)  多线程程序(multithreaded)

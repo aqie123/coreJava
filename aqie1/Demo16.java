@@ -5,7 +5,10 @@ public class Demo16 {
         Test16 t = new Test16();
         // t.method();
 
-        t.method2();
+        // t.method2();
+        // t.method3();
+        // t.method4();
+        t.method5();
     }
 }
 
@@ -24,6 +27,28 @@ class Test16{
         WithdrawMoney withdrawMoney2 = new WithdrawMoney("Wife");
         withdrawMoney.start();
         withdrawMoney2.start();
+    }
+
+    void method3(){
+        DeadLockThread d = new DeadLockThread("a");
+        DeadLockThread d2 = new DeadLockThread("b");
+        d.setPriority(10);
+        d2.setPriority(1);
+        d.start();
+        d2.start();
+    }
+
+    void method4(){
+        Multithreading m = new Multithreading();
+        Thread t = new Thread(m,"secondWay");
+        t.start();
+    }
+
+    void method5(){
+        SellTickets s1 = new SellTickets();
+        Thread a = new Thread(s1,"windows 1");
+        Thread b = new Thread(s1,"windows 2");
+        a.start();      b.start();
     }
 }
 
@@ -68,6 +93,12 @@ class WithdrawMoney extends Thread{
     // 非静态同步函数 -- 锁对象this对象 :当前有两个
     @Override
     public synchronized void run() {
+        getMoney();
+    }
+
+    // 静态同步函数, 当前方法所属类的class文件对象
+    // 会出现一个人把钱取光
+    private synchronized static void getMoney(){
         while (true){
             if(balance > 0){
                 System.out.println(Thread.currentThread().getName()+
@@ -79,9 +110,59 @@ class WithdrawMoney extends Thread{
             }
         }
     }
+}
 
-    // 静态同步函数, 当前方法所属类的class文件对象
-    public synchronized static void getMoney(){
+class DeadLockThread extends Thread{
+    public DeadLockThread(String name){
+        super(name);
+    }
 
+    @Override
+    public void run() {
+        if("a".equals(this.getName())){
+            synchronized ("RemoteControl"){
+                System.out.println(this.getName()+"waiting for battery");
+                synchronized ("battery"){
+                    System.out.println(this.getName()+" open air conditioner");
+                }
+            }
+        }else if("b".equals(this.getName())){
+            synchronized ("battery"){
+                System.out.println(this.getName()+"waiting for RemoteControl");
+                synchronized ("RemoteControl"){
+                    System.out.println(this.getName()+" open air conditioner");
+                }
+            }
+        }
+    }
+}
+
+// Second way to create multithreading
+class Multithreading implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0;i<100;i++){
+            // System.out.println(Thread.currentThread().getName() + ":" + i);
+        }
+        System.out.println("当前线程对象 " + Thread.currentThread());
+        System.out.println("当前对象 " + this);
+    }
+}
+
+class SellTickets implements Runnable{
+    static int num = 200;
+    @Override
+    public void run() {
+        while (true){
+            synchronized ("aqie"){
+                if(num > 0){
+                    System.out.println(Thread.currentThread().getName()+" : "+num);
+                    num--;
+                }else{
+                    System.out.println("sell out");
+                    break;
+                }
+            }
+        }
     }
 }

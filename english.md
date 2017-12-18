@@ -7,3 +7,4 @@
     5. character reference  字符引用
     6. entity reference     实体引用
     7. race condition       竞争条件
+    8. daemon threads       守护线程
