@@ -156,6 +156,11 @@
         2.cpu处理能力不足
     5.udp数据包丢失 Demo21.java
     6.TCP 协议 Demo22.java
-    7. 多线程服务端发送图片  Demo23.java
+    7. 多线程服务端发送图片,并统计多少人获取,同一IP只算一人  Demo23.java  ImageClient
         1. ServerSocket 没有 getInputStream 和getOutputStream
+    8.note:
+        1. 一个网络程序能接受和发送消息,至少占用两个端口
+            接受 9090 发送：CPU随机分配
+    9.模拟服务器与浏览器通讯 : 基于TCP协议
+        1. 服务器 TomCatService.java       浏览器 BrowserClient.java
         
