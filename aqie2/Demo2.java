@@ -11,11 +11,11 @@ public class Demo2 {
         // t.method();
         // t.method1();
         // t.method2();
-        // t.method3();
+        t.method3();
         // t.method4();
         // t.method5();
         // t.method6();
-        t.method7();
+        //t.method7();
     }
 }
 
@@ -91,7 +91,7 @@ class Test2{
             @Override
             public void actionPerformed(ActionEvent e) {    // 鼠标点击，空格会调用
                 System.out.println("I am clicked!");
-                JButton button1 = (JButton) e.getSource();  // 获取事件源对象
+                // JButton button1 = (JButton) e.getSource();  // 获取事件源对象
                 String content = button.getText();
                 if("click me".equals(content)){
                     button.setText("I have changed");

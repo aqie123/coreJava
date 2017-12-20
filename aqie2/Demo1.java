@@ -11,11 +11,10 @@ public class Demo1 {
         // t.method2();
         // t.method3();
         // t.method4();
-        // t.method5();
+        t.method5();
         // t.method6();
         // t.method7();
-        t.method8();
-        t.init();
+        //t.init();
     }
 }
 
@@ -165,9 +164,7 @@ class Test1{
     JMenuItem update = new JMenuItem("Update");
     // 文本域
     JTextArea area = new JTextArea(12,15);
-    void method8(){
 
-    }
     void init(){
         bar.add(fileMenu);
         bar.add(editMenu);
