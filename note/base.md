@@ -44,9 +44,12 @@
         2. path ： 任意路径可以找到java 开发工具
         3. java_home: 避免频繁修改path 环境变量信息
         4. classpath : 设置class文件路径
+            set classpath=.\test.zip
         5. main函数作用及其特点
             程序主入口,类需要独立运行
         6. class定义类
         7. javac 启动java编译器,编译java源文件
         8. java 启动java虚拟机,解释并执行指定class文件
-    4.
+    4. path classpath
+        path 在运行一个可执行命令的时候，系统会查找这个命令的位置
+      所以你运行javac  java的时候都需要path

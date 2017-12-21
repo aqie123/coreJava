@@ -1,3 +1,11 @@
+public class Singleton{
+    public static void main(String[] args){
+        Single s1 = Single.getInstance();
+        Single s2 = Single.getInstance();
+        System.out.println(s1 == s2);  // true
+    }
+}
+// 饿汉单例模式
 class Single {
     // 1.私有化构造函数
     private Single(){}
@@ -11,11 +19,5 @@ class Single {
     }
 }
 
-public class Singleton{
-    public static void main(String[] args){
-        Single s1 = Single.getInstance();
-        Single s2 = Single.getInstance();
-        System.out.println(s1 == s2);  // true
-    }
-}
+
 

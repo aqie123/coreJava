@@ -6,7 +6,7 @@ public class Singleton2 {
     }
 
 }
-
+// 懒汉单例模式
 class Single2{
     private Single2(){}
 

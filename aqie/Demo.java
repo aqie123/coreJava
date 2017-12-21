@@ -30,3 +30,4 @@ class SumRuntime extends MyRuntime{
         System.out.println(sum);
     }
 }
+
