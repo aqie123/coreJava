@@ -27,6 +27,12 @@ public class Test {
         // 打印地图
         t.showEnvironment();
 
+        // 蛇向上移动三步
+        for(int i = 0;i<3;i++){
+            t.moveUp();
+            t.refresh();
+        }
+
     }
 
     // 蛇
@@ -59,6 +65,8 @@ public class Test {
                 if(rows == 0 || rows == (HEIGHT-1) || column == 0 || column == (WIDTH-1)){
                     // System.out.print('*');
                     environment[rows][column] = '*';
+                }else{
+                    environment[rows][column] = ' ';
                 }
             }
         }
@@ -88,12 +96,29 @@ public class Test {
                 break;
             }
         }
-
     }
 
     // 显示食物
     public void showFood(){
         environment[food.y][food.x] = '@';
+    }
+
+    // 向上移动
+    public void moveUp(){
+        // 获取原始头位置
+        Point head = snakes.getFirst();
+        // 添加新头
+        snakes.addFirst(new Point(head.x,head.y-1));
+        // 删除蛇尾
+        snakes.removeLast();
+    }
+
+    // 刷新游戏最新状态
+    public void refresh(){
+        initEnvironment();
+        showSnake();
+        showFood();
+        showEnvironment();
     }
 }
 
